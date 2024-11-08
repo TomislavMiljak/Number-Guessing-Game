@@ -1,4 +1,27 @@
+/*function generateRandomNumber() {
+    return Math.floor(Math.random() * 100) + 1;
+}*/
+function generateRandomNumber(min = 1, max = 100) { //In case of changing limits it prevents bugs 
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
+
+
+function getPlayerGuess() { //input is resposible to exit the game when user desires
+    let guess;
+    while (true) {
+        const input = prompt("Enter a guess between 1 and 100, or type 'exit' to quit the game");
+        if (input === "exit") {
+            return "exit";
+        }
+        guess = parseInt(input);
+        if (!isNaN(guess) && guess >= 1 && guess <= 100) {
+            return guess;
+        } else {
+            alert("Invalid input. Please enter a number between 1 and 100, or type 'exit'");
+        }
+    }
+}
 
 function checkGuess(playerGuess, correctNumber) {
     if (playerGuess < correctNumber) {
