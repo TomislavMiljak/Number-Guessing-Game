@@ -64,3 +64,15 @@ function game() {
     return  //player lost
 }
 
+//game(); USED WITHOUT startGameLoop
+function startGameLoop() { // Using WHILE to avoid the BUG  that keeps function calling itself without exiting,
+    let playAgain = true;
+    while (playAgain) {
+        game();
+        playAgain = confirm("Would you like to play again?");
+    }
+    alert("Thanks for playing!");
+}
+
+startGameLoop();
+
