@@ -11,7 +11,11 @@ function getPlayerGuess() {
         
         const input = prompt("Enter a guess between 1 and 100, or type 'exit' to quit the game");
         if (input === "exit" || input === null) {
-            return "exit";
+            let continueGame = confirm("Would you like to quit the game now?");
+            if (continueGame){
+                return "exit";
+            } else continue;
+            
         }
         guess = parseInt(input);
         if (!isNaN(guess) && guess >= 1 && guess <= 100) {
@@ -44,7 +48,7 @@ function game() {
         const playerGuess = getPlayerGuess();
 
         if (playerGuess === "exit") { 
-            alert("You have exited the game");
+            alert("You have exited the game!");
             return; 
         }
 
