@@ -8,9 +8,14 @@ function generateRandomNumber(min = 1, max = 100) {
 function getPlayerGuess() { 
     let guess;
     while (true) {
+        
         const input = prompt("Enter a guess between 1 and 100, or type 'exit' to quit the game");
-        if (input === "exit") {
-            return "exit";
+        if (input === "exit" || input === null) {
+            let continueGame = confirm("Would you like to quit the game now?");
+            if (continueGame){
+                return "exit";
+            } else continue;
+            
         }
         guess = parseInt(input);
         if (!isNaN(guess) && guess >= 1 && guess <= 100) {
@@ -34,6 +39,7 @@ function checkGuess(playerGuess, correctNumber) {
 }
 
 function game() {
+    alert("Welcome to a Number Guessing Game!");
     const correctNumber = generateRandomNumber();
     let attemps = 0;
     const maxAttemps = 10;
@@ -42,7 +48,7 @@ function game() {
         const playerGuess = getPlayerGuess();
 
         if (playerGuess === "exit") { 
-            alert("You have exited the game");
+            alert("You have exited the game!");
             return; 
         }
 
