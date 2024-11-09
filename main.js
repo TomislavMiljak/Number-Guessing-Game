@@ -1,13 +1,11 @@
-/*function generateRandomNumber() {
-    return Math.floor(Math.random() * 100) + 1;
-}*/
-function generateRandomNumber(min = 1, max = 100) { //In case of changing limits it prevents bugs 
+
+function generateRandomNumber(min = 1, max = 100) { 
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 
 
-function getPlayerGuess() { //input is resposible to exit the game when user desires
+function getPlayerGuess() { 
     let guess;
     while (true) {
         const input = prompt("Enter a guess between 1 and 100, or type 'exit' to quit the game");
@@ -43,9 +41,9 @@ function game() {
     while (attemps < maxAttemps) {
         const playerGuess = getPlayerGuess();
 
-        if (playerGuess === "exit") { //IF is resposible to exit the game when user desires
+        if (playerGuess === "exit") { 
             alert("You have exited the game");
-            return; // Leaving game function
+            return; 
         }
 
         attemps++;
@@ -53,7 +51,7 @@ function game() {
 
         if (result === "Correct!") {
             alert(`CONGRATULATIONS!!!! You got the right number in ${attemps} attemps`);
-            return; // Player wins
+            return; 
         } else {
             alert(result);
         }
@@ -61,11 +59,11 @@ function game() {
 
     alert("THE GAME IS OVER -- You reached all the available attemps")
     alert(`The correct number is ${correctNumber}`);
-    return  //player lost
+    return  
 }
 
-//game(); USED WITHOUT startGameLoop
-function startGameLoop() { // Using WHILE to avoid the BUG  that keeps function calling itself without exiting,
+
+function startGameLoop() { 
     let playAgain = true;
     while (playAgain) {
         game();
