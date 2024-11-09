@@ -44,15 +44,8 @@ function game() {
         const playerGuess = getPlayerGuess();
 
         if (playerGuess === "exit") { 
-            const confirmExit = confirm("Are you sure you want to exit the game?");
-
-            if (confirmExit) {
-                alert("You have exited the game");
-                return; 
-            } else {
-                continue;
-            }
-            
+            alert("You have exited the game");
+            return; 
         }
 
         attemps++;
